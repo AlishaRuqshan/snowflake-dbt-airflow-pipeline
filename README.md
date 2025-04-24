@@ -99,3 +99,32 @@ Expand your DAGs to support upstream/downstream workflows
 Deploy to managed Airflow like Astronomer Cloud
 
 Built with 💻 by Alisha Ruqshan Kadiri
+
+
+
+**🛠️ Getting Started Locally**
+
+If you want to run this project on your machine:
+
+🔁 Prerequisites:
+
+Install Docker
+
+Install Astro CLI
+
+Clone this repo:
+
+git clone https://github.com/AlishaRuqshan/snowflake-dbt-airflow-pipeline.git
+cd snowflake-dbt-airflow-pipeline
+
+🚀 Start the local environment:
+
+astro dev start --wait 3m
+
+🌐 Access Airflow:
+
+Visit http://localhost:8080 and run the DAG named run_dbt_pipeline
+
+🧪 Add your own Snowflake credentials inside dags/.dbt/profiles.yml
+
+Or use env_var() style secrets with astro dev secrets set
