@@ -40,13 +40,21 @@ Organize your repo like a pro and track it all with Git
 🧱 Project Folder Breakdown
 
 dbt-dag/
+
 ├── dags/
+
 │   ├── data_pipeline/       # Your dbt project: models, macros, seeds, snapshots
+
 │   └── .dbt/profiles.yml    # Snowflake profile – safely mounted inside container
+
 ├── plugins/                 # Airflow plugins if needed
+
 ├── Dockerfile               # Astro Runtime image (comes with dbt)
+
 ├── requirements.txt         # Extra Python packages
+
 ├── airflow_settings.yaml    # Airflow config: DAGs, connections, variables
+
 └── README.md
 
 ✅ What We Built
