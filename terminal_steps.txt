@@ -1,0 +1,16 @@
+  818  dbt_run
+  819  cd ~/data_pipeline/dbt-dag
+  820  astro dev start --wait 3m
+  821  astro dev bash
+  822  (base) alisharuqshan@MacBook-Pro dbt-dag %
+  823  alisharuqshan@MacBook-Pro dbt-dag %
+  824  cd ~/data_pipeline\nzip -r dbt_dag_project.zip dbt-dag
+  825  astro dev restart --wait 3m
+  826  cd dbt-dag
+  827  astro dev restart --wait 3m
+  828  astro dev restart --wait 3m
+  829  astro dev bash
+  830  astro dev restart --wait 3m
+  831  mkdir -p dags/.dbt\ncp ~/.dbt/profiles.yml dags/.dbt/
+  832  astro dev restart --wait 3m
+  833  cd ~/data_pipeline/dbt-dag\nzip -r dbt_pipeline_project.zip .

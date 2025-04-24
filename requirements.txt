@@ -1,0 +1,2 @@
+# Cleaned-up dependencies for Astro with dbt + Snowflake
+apache-airflow-providers-snowflake
