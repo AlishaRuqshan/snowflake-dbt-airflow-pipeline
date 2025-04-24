@@ -3,7 +3,7 @@ data_pipeline:
     dev:
       account: gjb20445.us-east-1
       database: dbt_db
-      password: Xoxoxo@12345678
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
       role: dbt_role
       schema: dbt_schema
       threads: 10
