@@ -1,16 +1,42 @@
-  818  dbt_run
-  819  cd ~/data_pipeline/dbt-dag
-  820  astro dev start --wait 3m
-  821  astro dev bash
-  822  (base) alisharuqshan@MacBook-Pro dbt-dag %
-  823  alisharuqshan@MacBook-Pro dbt-dag %
-  824  cd ~/data_pipeline\nzip -r dbt_dag_project.zip dbt-dag
-  825  astro dev restart --wait 3m
-  826  cd dbt-dag
-  827  astro dev restart --wait 3m
-  828  astro dev restart --wait 3m
-  829  astro dev bash
-  830  astro dev restart --wait 3m
-  831  mkdir -p dags/.dbt\ncp ~/.dbt/profiles.yml dags/.dbt/
-  832  astro dev restart --wait 3m
-  833  cd ~/data_pipeline/dbt-dag\nzip -r dbt_pipeline_project.zip .
+# 1. Install virtual environment and activate
+python3 -m venv env
+source env/bin/activate
+
+# 2. Install DBT and Snowflake adapter
+pip install dbt-core dbt-snowflake
+
+# 3. Initialize a new DBT project (if not already)
+dbt init data_pipeline
+
+# 4. Create your dbt_project.yml, models/, seeds/, macros/ etc. (Done manually or by cloning your repo)
+
+# 5. Create Snowflake profile
+mkdir -p ~/.dbt
+
+# Create this file with credentials (via nano, vim, or VS Code)
+nano ~/.dbt/profiles.yml
+# (or use the env_var approach if pushing to GitHub)
+
+# 6. Check dbt works
+dbt debug
+
+# 7. Move project files into Astro's DAGs folder
+mv data_pipeline dags/data_pipeline
+
+# 8. Initialize Astro project
+astro dev init
+
+# 9. Copy Snowflake profile into DAGs for container visibility
+mkdir -p dags/.dbt
+cp ~/.dbt/profiles.yml dags/.dbt/
+
+# 10. Start Airflow container
+astro dev start --wait 3m
+
+# 11. Enter container (if needed for dbt CLI usage)
+astro dev bash
+
+# 12. Inside container: run dbt
+dbt debug
+dbt deps
+dbt run
