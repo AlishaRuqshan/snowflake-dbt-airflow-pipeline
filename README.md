@@ -1,43 +1,54 @@
 🚀 End-to-End Cloud Data Pipeline Project (Snowflake + dbt + Apache Airflow)
 
-📌 Project Overview
-Hey there! This project walks you through how to build a cloud-based data pipeline using:
+**📌 Project Overview**
+ . Hey there! This project walks you through how to build a cloud-based data pipeline using:
 
-Snowflake – a super scalable, cloud-native data warehouse
+ . Snowflake – a super scalable, cloud-native data warehouse
 
-dbt (Data Build Tool) – lets you transform data using SQL like a pro, all while treating it like code
+ . dbt (Data Build Tool) – lets you transform data using SQL like a pro, all while treating it like code
 
-Apache Airflow (via Astro CLI) – to orchestrate and schedule everything, container-style
+ . Apache Airflow (via Astro CLI) – to orchestrate and schedule everything, container-style
 
-Goal: Seamlessly ingest, transform, and orchestrate structured data using modern, cloud-friendly tools in a containerized setup you can spin up anywhere.
+**Goal**: Seamlessly ingest, transform, and orchestrate structured data using modern, cloud-friendly tools in a containerized setup you can spin up anywhere.
 
-💡 Why This Project Matters
+**💡 Why This Project Matters**
 
-Old-school ETL pipelines can be clunky — think hard-to-maintain scripts, mystery logic, and “who broke this?” moments.
+ . Old-school ETL pipelines can be clunky — think hard-to-maintain scripts, mystery logic, and “who broke this?” moments.
 
-dbt flips the script by:
+** .dbt flips the script by:**
 
-Making your SQL modular, version-controlled, and testable
+ . Making your SQL modular, version-controlled, and testable
 
-Boosting transparency with data lineage and documentation
+ . Boosting transparency with data lineage and documentation
 
-Letting data teams collaborate like software engineers
+ . Letting data teams collaborate like software engineers
 
-Pair that with Snowflake’s muscle and Airflow’s scheduling chops, and you’ve got a modern setup that actually scales.
+ . Pair that with Snowflake’s muscle and Airflow’s scheduling chops, and you’ve got a modern setup that actually scales.
 
-🔧 What You'll Get Out of This
+**Why It’s Valuable for Data Analysts**
 
-Build end-to-end ELT pipelines using dbt + Snowflake
+ . As a data analyst, being able to trust and understand your data is everything. This project:
 
-Write clean, reusable SQL models and macros
+ . Helps you trace how raw data becomes analysis-ready
 
-Trigger and monitor dbt runs inside Apache Airflow
+ . Gives you visibility into transformations
 
-Manage your config with profiles.yml and support multiple environments
+ . Empowers self-service access through clean, documented models
 
-Organize your repo like a pro and track it all with Git
+****Why It’s Important for Me as a Data Engineer**
+As the Data Engineer on this project, I:
 
-🧱 Project Folder Breakdown
+ . Designed the ELT architecture from scratch using best practices
+
+ . Wrote SQL-based models with dbt, using macros for flexibility
+
+ . Built a reusable, containerized environment with Astro CLI + Docker
+
+ . Automated all steps with Airflow and managed configs with profiles.yml
+
+ . Integrated version control with Git and structured the project for teamwork
+
+**🧱 Project Folder Breakdown**
 
 dbt-dag/
 
@@ -57,7 +68,7 @@ dbt-dag/
 
 └── README.md
 
-✅ What We Built
+**✅ What We Built**
 
 Modular staging, intermediate, and fact models using dbt
 
@@ -69,7 +80,7 @@ A Dockerized local environment using Astro CLI
 
 Safely stored Snowflake credentials via .dbt/profiles.yml
 
-📈 What You'll See Working
+**📈 What You'll See Working**
 
 Airflow UI running locally at localhost:8080
 
@@ -77,7 +88,7 @@ dbt models successfully building tables and views in Snowflake
 
 A clean, Git-tracked project you can share or extend
 
-💬 Where You Can Take This
+**💬 Where You Can Take This**
 
 Add dbt tests to validate assumptions
 
