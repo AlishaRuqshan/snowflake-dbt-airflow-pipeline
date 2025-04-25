@@ -1,53 +1,26 @@
 🚀 End-to-End Cloud Data Pipeline Project (Snowflake + dbt + Apache Airflow)
 
 **📌 Project Overview**
- . Hey there! This project walks you through how to build a cloud-based data pipeline using:
-
- . Snowflake – a super scalable, cloud-native data warehouse
-
- . dbt (Data Build Tool) – lets you transform data using SQL like a pro, all while treating it like code
-
- . Apache Airflow (via Astro CLI) – to orchestrate and schedule everything, container-style
-
-**Goal**: Seamlessly ingest, transform, and orchestrate structured data using modern, cloud-friendly tools in a containerized setup you can spin up anywhere.
-
-**💡 Why This Project Matters**
-
- . Old-school ETL pipelines can be clunky — think hard-to-maintain scripts, mystery logic, and “who broke this?” moments.
-
-** .dbt flips the script by:**
-
- . Making your SQL modular, version-controlled, and testable
-
- . Boosting transparency with data lineage and documentation
-
- . Letting data teams collaborate like software engineers
-
- . Pair that with Snowflake’s muscle and Airflow’s scheduling chops, and you’ve got a modern setup that actually scales.
-
-**Why It’s Valuable for Data Analysts**
-
- . As a data analyst, being able to trust and understand your data is everything. This project:
-
- . Helps you trace how raw data becomes analysis-ready
-
- . Gives you visibility into transformations
-
- . Empowers self-service access through clean, documented models
-
-****Why It’s Important for Me as a Data Engineer**
-As the Data Engineer on this project, I:
-
- . Designed the ELT architecture from scratch using best practices
-
- . Wrote SQL-based models with dbt, using macros for flexibility
-
- . Built a reusable, containerized environment with Astro CLI + Docker
-
- . Automated all steps with Airflow and managed configs with profiles.yml
-
- . Integrated version control with Git and structured the project for teamwork
-
+- 	🔐 **Created a secure environment in Snowflake:**
+	 - •Set up a dedicated database (dbt_db) and schema (dbt_schema)
+	 - •Created a custom role (dbt_role) and granted it permission to create tables, views, stages, and formats
+	 - •Assigned the role to your Snowflake user.
+- 🛠️** Built a DBT project locally:**
+	 - •Initialized a new DBT project (data_pipeline)
+  - •Configured profiles.yml with your Snowflake connection details (user, password, warehouse, schema)
+	 - •Defined staging and mart models using SQL files and config() blocks
+	 - •Wrote reusable macros for transformations.
+- ⚙️ **Set up Airflow locally using Astro CLI:**
+	 - •Ran astro dev init to scaffold the Airflow project
+	 - •Wrote a DAG (dbt_dag.py) that uses BashOperator to trigger dbt run and dbt test
+	 - •Mounted the DBT project folder into the dags/ directory of the Astro environment
+	 - •Added the profiles.yml inside a hidden .dbt folder so Airflow could access it.
+- **🔁 Ran and orchestrated everything locally:**
+	 - •Triggered the Airflow DAG manually via the UI
+	 - •Verified task status in the Graph view
+	 - •Checked logs to confirm DBT transformations executed successfully
+	 - •Models appeared in Snowflake as expected (with correct materializations: table, view)
+ 
 **🧱 Project Folder Breakdown**
 
 dbt-dag/
@@ -68,38 +41,13 @@ dbt-dag/
 
 └── README.md
 
-**✅ What We Built**
 
-Modular staging, intermediate, and fact models using dbt
-
-Smart macros to reuse logic and clean up transformations
-
-An Airflow DAG using BashOperator to kick off dbt runs
-
-A Dockerized local environment using Astro CLI
-
-Safely stored Snowflake credentials via .dbt/profiles.yml
 
 **📈 What You'll See Working**
 
 Airflow UI running locally at localhost:8080
-
 dbt models successfully building tables and views in Snowflake
-
 A clean, Git-tracked project you can share or extend
-
-**💬 Where You Can Take This**
-
-Add dbt tests to validate assumptions
-
-Auto-generate docs using dbt docs generate
-
-Expand your DAGs to support upstream/downstream workflows
-
-Deploy to managed Airflow like Astronomer Cloud
-
-Built with 💻 by Alisha Ruqshan Kadiri
-
 
 
 **🛠️ Getting Started Locally**
